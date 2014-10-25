@@ -26,7 +26,7 @@ public class TutorialPlugin extends JavaPlugin implements Listener {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		if(command.getName().equalsIgnoreCase("basic")){
+		if(command.getName().equalsIgnoreCase("ainau")){
 			if ((sender instanceof Player)) {
 				sender.sendMessage("あいなうは神");
 			} else {
