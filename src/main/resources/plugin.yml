@@ -1,0 +1,10 @@
+name: TutorialPlugin
+version: 0.0.1
+main: net.enkun.plugins.tutorial.TutorialPlugin
+
+commands:
+  ainau:
+    description: あいなうを称えるコマンド
+    usage: /<command>
+    permission: tutorialplugin.ainau
+    pemission-message: You don't have <permission>
