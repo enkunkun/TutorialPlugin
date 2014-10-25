@@ -16,6 +16,8 @@ public class TutorialPlugin extends JavaPlugin implements Listener {
 	@Override
 	public void onEnable() {
 		getLogger().info("onEnableメソッドが呼び出されたよ！！");
+
+		//onPlayerJoin を利用するために必要
 		getServer().getPluginManager().registerEvents(this, this);
 	}
 
@@ -26,6 +28,7 @@ public class TutorialPlugin extends JavaPlugin implements Listener {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+		//ゲーム内で /ainau コマンドを使った時
 		if(command.getName().equalsIgnoreCase("ainau")){
 			if ((sender instanceof Player)) {
 				sender.sendMessage("あいなうは神");
@@ -40,11 +43,13 @@ public class TutorialPlugin extends JavaPlugin implements Listener {
 	@EventHandler
 	public void onPlayerJoin(PlayerLoginEvent event) {
 		Player player = event.getPlayer();
+
+		//サーバーに初めて入ってきた人か
 		if (!player.hasPlayedBefore()) {
 			player.sendMessage("○○サーバーへようこそ！初期支援物資をインベントリに配布しますね。");
 			ItemStack bread = new ItemStack(Material.BREAD, 16);
 			player.getInventory().addItem(bread);
-		} else {
+		} else { //そうでないか
 			player.sendMessage("○○サーバーへようこそ！");
 		}
 	}
